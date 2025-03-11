@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <property name="HOME_LOG" value="logs/app.log"/>
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern> - %msg %n</pattern>
+        </encoder>
+    </appender>
+    <appender name="FILE" class="ch.qos.logback.core.FileAppender">
+        <file>logs/app.log</file>
+        <encoder>
+            <pattern>%date %-5level - %msg%n</pattern>
+        </encoder>
+    </appender>
+    <!-- Log Level: ERROR, WARN, INFO, DEBUG, TRACE-->
+    <logger name="com.library.task" level="DEBUG" additivity="false">
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="FILE"/>
+    </logger>
+    <root level="error">
+        <appender-ref ref="FILE"/>
+    </root>
+</configuration>
